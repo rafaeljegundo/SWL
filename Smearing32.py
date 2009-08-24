@@ -14,14 +14,18 @@ from math import log, exp, sqrt
 from random import shuffle, random, uniform
 
 def inputData(data):
+
+	""" Esta função procura """
+		
+	folder = raw_input("Path to folder")
 	
-	files = os.listdir('.')
+	files = os.listdir(folder)
 	
 	files = filter(lambda x: x[-3:] == 'txt', files)
 	
 	for txt in files:
-		
-		f = open(txt, 'r')
+	
+		f = open(folder + txt , 'r')
 				
 		for line in f :
 			
@@ -38,7 +42,9 @@ def inputData(data):
 		f.write(line[0] + '\t' + line[1] + '\t' + line[2] + '\n')
 			
 	f.close()	
-		
+	
+	sys.exit()
+	
 	return data
 
 
@@ -220,7 +226,7 @@ def main():
 	
 	r = []
 	
- #	data = inputData(data)
+ 	data = inputData(data)
 	
 	f = open('data.dat','r')
 	
